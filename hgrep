@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+csvfile=${@: -1}
+head --lines 1 $csvfile && grep "$@"

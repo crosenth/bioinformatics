@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 pattern=$1
 shift 1
-image=$(docker images --format "{{.Repository}}:{{.Tag}}" | grep $pattern)
+image=$(docker images --format "{{.Repository}}:{{.Tag}}" | grep $pattern | head --line 1)
 docker run --volume $(pwd):$(pwd) --workdir $(pwd) $image $@
